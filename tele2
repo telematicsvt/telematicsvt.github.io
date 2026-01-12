@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тахографи и GPS – Централна България</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('telemat.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0d6efd;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .contact {
+      background: #e9f1ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      background: #fff;
+    }
+    a {
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top visual hero image -->
+<div style="width:100%;max-height:420px;overflow:hidden;">
+  <img src="telemat.jpg" alt="Telematics GPS Tachograph" style="width:100%;object-fit:cover;display:block;">
+</div>
+
+<header>
+  <img src="logo-telematics.png" alt="Телематикс ЕООД" style="max-width:180px;margin-bottom:20px;">
+  <h1>Тахографи & GPS без главоболия</h1>
+  <p><strong>Технически прецизно. Практично. Законно.</strong></p>
+  <p>VDO • Continental Automotive • GPS Telematics</p>
+  <hr style="max-width:300px;margin:20px auto;opacity:0.4;">
+  <h2 style="font-weight:normal">Tachographs & GPS — done right</h2>
+  <p><em>Technical precision. Real-world solutions.</em></p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Визуална презентация</h2>
+    <p>Тук може да бъде добавена снимка по ваш избор (сервиз, автомобил, тахограф, GPS система), която ще се показва най-отгоре на сайта.</p>
+    <img src="telemat.jpg" alt="GPS и тахографи – Telematics" style="width:100%;border-radius:12px;margin-top:15px;">
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>За нас | About Us</h2>
+    <p>
+      Ние сме <strong>Телематикс ЕООД</strong> – хора, които говорят на езика на
+      тахографите, CAN шината и сателитите.
+      Монтираме, настройваме и калибрираме така, че техниката да работи,
+      а проверките да минават спокойно.
+    </p>
+    <p>
+      <em>We are Telematics Ltd — specialists who speak tachographs, CAN bus
+      and satellites fluently. We install, configure and calibrate systems
+      so your fleet works smoothly and stays compliant.</em>
+    </p>
+
+    <h2>Нашите услуги | Services</h2>
+    <ul>
+      <li>Монтаж и настройка на дигитални тахографи (VDO, Continental)</li>
+      <li>Калибриране и техническа проверка – без излишни драми</li>
+      <li>Монтаж на GPS и телематични системи</li>
+      <li>Диагностика: когато техниката „говори“, ние я разбираме</li>
+      <li><em>Digital tachograph installation & calibration</em></li>
+      <li><em>GPS & telematics systems for trucks and buses</em></li>
+    </ul>
+
+    <h2>Район на обслужване | Coverage</h2>
+    <p>
+      Централна България – там, където камионите не чакат,
+      а техниката трябва да работи веднага.
+    </p>
+    <p><em>Central Bulgaria — mobile service where downtime is not an option.</em></p>
+
+    <div class="contact">
+      <h2>Контакти</h2>
+      <p>📞 Телефон: <a href="tel:+359878969697">+359 878 969 697</a></p>
+      <p>💬 WhatsApp: <a href="https://wa.me/359878969697" target="_blank">Пиши в WhatsApp</a></p>
+      <p>💬 Messenger: <a href="https://m.me/TelematicsLtd" target="_blank">Facebook Messenger</a></p>
+      <p>📘 Facebook: <a href="https://www.facebook.com/TelematicsLtd" target="_blank">Telematics Ltd</a></p>
+      <p>📸 Instagram: <a href="https://www.instagram.com/telematicsvt/" target="_blank">@telematicsvt</a></p>
+      <p>🚚 Мобилен сервиз – бърза реакция в Централна България</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Монтаж на тахографи и GPS | Всички права запазени
+</footer>
+
+</body>
+</html>
