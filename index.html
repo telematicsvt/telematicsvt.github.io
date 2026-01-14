@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Телематикс ЕООД | Тахографи & GPS</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('telemat.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #FFD200;
+}
+    .hero {
+      text-align: center;
+      padding: 100px 20px 70px;
+    }
+    .hero img {
+      max-width: 200px;
+      margin-bottom: 25px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 6px 0;
+      color: #fff;
+    }
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(0,0,0,0.8);
+      border-left: 6px solid #FFD200;
+    }
+    h2 {
+      margin-top: 0;
+      color: #FFD200;
+      letter-spacing: 1px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .contact a {
+      color: #FFD200;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #FFD200;
+      color: #000;
+      padding: 15px 20px;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255,210,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky quick bar (ЕДИНСТВЕНО място за телефон + бързи връзки) -->
+<div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.92);border-bottom:3px solid #FFD200;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px;">
+  <a href="tel:+359878969697" style="background:#FFD200;color:#000;padding:10px 16px;border-radius:8px;font-weight:900;text-decoration:none;letter-spacing:0.5px;">📞 ОБАДИ СЕ: 00359 878 96 96 97</a>
+  <a href="https://m.me/TelematicsLtd" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">Messenger</a>
+  <a href="https://www.facebook.com/TelematicsLtd" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">Facebook</a>
+  <a href="https://www.instagram.com/telematicsvt/" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">Instagram</a>
+</div>
+<div style="height:64px"></div>
+
+<!-- Top map hero with controls -->
+<div style="width:100%;height:460px;position:relative;">
+  <iframe id="mapFrame" src="https://www.google.com/maps?q=Лясковец+Христо+Ботев+4&output=embed" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+  <div style="position:absolute;top:15px;left:50%;transform:translateX(-50%);display:flex;gap:10px;flex-wrap:wrap;">
+    <button onclick="document.getElementById('mapFrame').src='https://www.google.com/maps?q=Лясковец+Христо+Ботев+4&output=embed'" style="background:#FFD200;color:#000;border:none;padding:10px 16px;font-weight:bold;border-radius:6px;cursor:pointer;">📍 Централен сервиз</button>
+    <button onclick="document.getElementById('mapFrame').src='https://www.google.com/maps?q=Велико+Търново+Никола+Габровски+74&output=embed'" style="background:#FFD200;color:#000;border:none;padding:10px 16px;font-weight:bold;border-radius:6px;cursor:pointer;">📍 Втори сервиз</button>
+  </div>
+  <div style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#FFD200;padding:12px 18px;border-left:5px solid #FFD200;font-weight:bold;">
+    <span id="t_topline">🚚 ДОСТЪП ЗА ТИР И АВТОБУСИ • 🕒 Работно време: Понеделник – Събота: 09:00 – 18:00</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div style="margin-bottom:20px;background:rgba(0,0,0,0.7);display:inline-block;padding:10px 18px;border-left:6px solid #FFD200;">
+    ⭐ <strong id="t_badge_title">СЕРВИЗ ЗА ТАХОГРАФИ И ТЕЛЕМАТИКА</strong> • <span id="t_badge_reg">РЕГ. № 234 | СЪВМЕСТИМ С ЕС 561 | актуално оборудване</span>
+  </div>
+  <img src="logo-telematics.png" alt="Телематикс ЕООД">
+  <h1 id="t_hero_h1">ТАХОГРАФИ & GPS</h1>
+  <p id="t_hero_sub">Монтаж • Настройка • Калибриране</p>
+  <p><strong>VDO • Continental • Automotive Telematics</strong></p>
+</div>
+
+<div class="section">
+  <div style="text-align:right;margin-bottom:10px;display:flex;gap:8px;justify-content:flex-end;">
+    <button id="btnBG" onclick="setLang('bg')" style="background:#FFD200;color:#000;border:none;padding:6px 12px;font-weight:bold;border-radius:4px;cursor:pointer;">BG</button>
+    <button id="btnEN" onclick="setLang('en')" style="background:#333;color:#FFD200;border:1px solid #FFD200;padding:6px 12px;font-weight:bold;border-radius:4px;cursor:pointer;">EN</button>
+  </div>
+  <h2 id="t_sec1_h2">СЕРВИЗ, НЕ ПРИКАЗКИ</h2>
+  <p>
+    <span id="t_sec1_p1">Работим с тахографи така, както трябва – технически точно, законно и без компромиси. Ние не „пробваме“ – ние знаем.</span>
+  </p>
+  <p><em>
+    <span id="t_sec1_p2">Tachographs done right. No guessing. No downtime.</span>
+  </em></p>
+</div>
+
+<div class="section">
+  <div style="margin-bottom:15px;background:#FFD200;color:#000;padding:12px 16px;font-weight:bold;border-radius:4px;">
+    🚨 АВАРИЙНА ПОМОЩ • МОБИЛЕН СЕРВИЗ • РЕАКЦИЯ НА МЯСТО
+  </div>
+  <h2 id="t_services_h2">УСЛУГИ</h2>
+  <ul>
+    <li id="t_svc_1">Монтаж и настройка на дигитални тахографи</li>
+    <li id="t_svc_2">Калибриране и проверки</li>
+    <li id="t_svc_3">GPS и телематични системи</li>
+    <li id="t_svc_4">Диагностика и сервиз</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 id="t_loc_h2">КОНТАКТИ И ЛОКАЦИИ</h2>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px;">
+    <a href="https://m.me/TelematicsLtd" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">💬 Messenger</a>
+    <a href="https://www.facebook.com/TelematicsLtd" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">📘 Facebook</a>
+    <a href="https://www.instagram.com/telematicsvt/" target="_blank" style="background:#111;color:#FFD200;border:1px solid #FFD200;padding:10px 14px;border-radius:8px;font-weight:900;text-decoration:none;">📸 Instagram</a>
+  </div>
+
+  <h3 id="t_loc1_h3">Централен сервиз – гр. Лясковец</h3>
+  <p id="t_loc1_p">ул. Христо Ботев 4, главен път 514, до Марешки</p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Лясковец+Христо+Ботев+4" target="_blank" style="display:inline-block;margin-bottom:10px;background:#FFD200;color:#000;padding:10px 18px;border-radius:6px;font-weight:bold;text-decoration:none;"><span class="t_open_maps">📍 Отвори в Google Maps</span></a>
+  <iframe src="https://www.google.com/maps?q=Лясковец+Христо+Ботев+4&output=embed" width="100%" height="280" style="border:0;" loading="lazy"></iframe>
+
+  <h3 id="t_loc2_h3">Втори сервиз – гр. Велико Търново</h3>
+  <p id="t_loc2_p">ул. Никола Габровски 74, паркинг Scania</p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Велико+Търново+Никола+Габровски+74" target="_blank" style="display:inline-block;margin-bottom:10px;background:#FFD200;color:#000;padding:10px 18px;border-radius:6px;font-weight:bold;text-decoration:none;"><span class="t_open_maps">📍 Отвори в Google Maps</span></a>
+  <iframe src="https://www.google.com/maps?q=Велико+Търново+Никола+Габровски+74&output=embed" width="100%" height="280" style="border:0;" loading="lazy"></iframe>
+
+  <h3 id="t_loc3_h3" style="margin-top:30px;color:#FFD200;">🆕 Трети сервиз – ОТВАРЯ СКОРО</h3>
+  <p id="t_loc3_p">с. Поликраище – срещу OMV, в базата на „Шанс-М.Б“</p>
+  <a href="https://maps.app.goo.gl/VoKZ93UvTXfGYxjr9" target="_blank" style="display:inline-block;margin-bottom:10px;background:#333;color:#FFD200;padding:10px 18px;border-radius:6px;font-weight:bold;text-decoration:none;border:1px solid #FFD200;">📍 Виж локацията в Google Maps</a>
+</div>
+
+
+
+<!-- Bottom quick services strip -->
+<div style="max-width:1000px;margin:30px auto 90px;padding:14px 16px;background:rgba(0,0,0,0.8);border-top:3px solid #FFD200;border-bottom:3px solid #FFD200;display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap;">
+  <div style="text-align:center;min-width:120px;">
+    <div style="font-size:26px;">🧰</div>
+    <div style="font-weight:bold;">Монтаж тахограф</div>
+  </div>
+  <div style="text-align:center;min-width:120px;">
+    <div style="font-size:26px;">⚙️</div>
+    <div style="font-weight:bold;">Калибриране</div>
+  </div>
+  <div style="text-align:center;min-width:120px;">
+    <div style="font-size:26px;">🧲</div>
+    <div style="font-weight:bold;">Смяна на датчик</div>
+  </div>
+  <div style="text-align:center;min-width:120px;">
+    <div style="font-size:26px;">📡</div>
+    <div style="font-weight:bold;">GPS</div>
+  </div>
+  <div style="text-align:center;min-width:120px;">
+    <div style="font-size:26px;">🛡️</div>
+    <div style="font-weight:bold;">Проверки</div>
+  </div>
+</div>
+
+<script>
+  // Simple BG/EN switch (no duplicated phone)
+  const i18n = {
+    bg: {
+      badge_title: 'СЕРВИЗ ЗА ТАХОГРАФИ И ТЕЛЕМАТИКА',
+      badge_reg: 'РЕГ. № 234 | СЪВМЕСТИМ С ЕС 561 | актуално оборудване',
+      hero_h1: 'ТАХОГРАФИ & GPS',
+      hero_sub: 'Монтаж • Настройка • Калибриране',
+      sec1_h2: 'СЕРВИЗ, НЕ ПРИКАЗКИ',
+      sec1_p1: 'Работим с тахографи така, както трябва – технически точно, законно и без компромиси. Ние не „пробваме“ – ние знаем.',
+      sec1_p2: 'Tachographs done right. No guessing. No downtime.',
+      services_h2: 'УСЛУГИ',
+      svc1: 'Монтаж и настройка на дигитални тахографи',
+      svc2: 'Калибриране и проверки',
+      svc3: 'GPS и телематични системи',
+      svc4: 'Диагностика и сервиз',
+      loc_h2: 'КОНТАКТИ И ЛОКАЦИИ',
+      loc1_h3: 'Централен сервиз – гр. Лясковец',
+      loc1_p: 'ул. Христо Ботев 4, главен път 514, до Марешки',
+      loc2_h3: 'Втори сервиз – гр. Велико Търново',
+      loc2_p: 'ул. Никола Габровски 74, паркинг Scania',
+      loc3_h3: '🆕 Трети сервиз – ОТВАРЯ СКОРО',
+      loc3_p: 'с. Поликраище – срещу OMV, в базата на „Шанс-М.Б“',
+      open_maps: '📍 Отвори в Google Maps',
+      topline: '🚚 ДОСТЪП ЗА ТИР И АВТОБУСИ • 🕒 Работно време: Понеделник – Събота: 09:00 – 18:00'
+    },
+    en: {
+      badge_title: 'TACHOGRAPH & TELEMATICS SERVICE',
+      badge_reg: 'REG. No. 234 | COMPLIANT WITH EU 561 | up-to-date equipment',
+      hero_h1: 'TACHOGRAPHS & GPS',
+      hero_sub: 'Installation • Setup • Calibration',
+      sec1_h2: 'SERVICE, NOT STORIES',
+      sec1_p1: 'We handle tachographs the right way — technical precision, legal compliance, no compromises. We don\'t “try” — we know.',
+      sec1_p2: 'Tachographs done right. No guessing. No downtime.',
+      services_h2: 'SERVICES',
+      svc1: 'Digital tachograph installation & setup',
+      svc2: 'Calibration & compliance checks',
+      svc3: 'GPS & telematics systems',
+      svc4: 'Diagnostics & service',
+      loc_h2: 'CONTACTS & LOCATIONS',
+      loc1_h3: 'Main service center — Lyaskovets',
+      loc1_p: 'Hristo Botev St. 4, main road 514, near Mareshki',
+      loc2_h3: 'Second service center — Veliko Tarnovo',
+      loc2_p: 'Nikola Gabrovski St. 74, Scania parking',
+      loc3_h3: '🆕 Third service center — OPENING SOON',
+      loc3_p: 'Polikraishte village — opposite OMV, at “Shans-M.B” base',
+      open_maps: '📍 Open in Google Maps',
+      topline: '🚚 TRUCK & BUS ACCESS • 🕒 Working hours: Mon–Sat 09:00–18:00'
+    }
+  };
+
+  function applyText(id, value){
+    const el = document.getElementById(id);
+    if(el) el.textContent = value;
+  }
+
+  function setLang(lang){
+    const t = i18n[lang] || i18n.bg;
+    applyText('t_badge_title', t.badge_title);
+    applyText('t_badge_reg', t.badge_reg);
+    applyText('t_hero_h1', t.hero_h1);
+    applyText('t_hero_sub', t.hero_sub);
+    applyText('t_sec1_h2', t.sec1_h2);
+    applyText('t_sec1_p1', t.sec1_p1);
+    applyText('t_sec1_p2', t.sec1_p2);
+    applyText('t_services_h2', t.services_h2);
+    applyText('t_svc_1', t.svc1);
+    applyText('t_svc_2', t.svc2);
+    applyText('t_svc_3', t.svc3);
+    applyText('t_svc_4', t.svc4);
+    applyText('t_loc_h2', t.loc_h2);
+    applyText('t_loc1_h3', t.loc1_h3);
+    applyText('t_loc1_p', t.loc1_p);
+    applyText('t_loc2_h3', t.loc2_h3);
+    applyText('t_loc2_p', t.loc2_p);
+    applyText('t_loc3_h3', t.loc3_h3);
+    applyText('t_loc3_p', t.loc3_p);
+    applyText('t_topline', t.topline);
+
+    document.querySelectorAll('.t_open_maps').forEach(el => el.textContent = t.open_maps);
+
+    // button states
+    const bgBtn = document.getElementById('btnBG');
+    const enBtn = document.getElementById('btnEN');
+    if(bgBtn && enBtn){
+      if(lang === 'en'){
+        bgBtn.style.background = '#333'; bgBtn.style.color = '#FFD200'; bgBtn.style.border = '1px solid #FFD200';
+        enBtn.style.background = '#FFD200'; enBtn.style.color = '#000'; enBtn.style.border = 'none';
+      } else {
+        enBtn.style.background = '#333'; enBtn.style.color = '#FFD200'; enBtn.style.border = '1px solid #FFD200';
+        bgBtn.style.background = '#FFD200'; bgBtn.style.color = '#000'; bgBtn.style.border = 'none';
+      }
+    }
+
+    localStorage.setItem('site_lang', lang);
+  }
+
+  // init
+  setLang(localStorage.getItem('site_lang') || 'bg');
+</script>
+
+</body>
+</html>
