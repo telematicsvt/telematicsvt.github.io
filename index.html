@@ -1,62 +1,195 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Телематикс | Тахографи и телематика</title>
-  <style>
-    body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),url('telemat.jpg') center/cover fixed;color:#FFD200}
-    .hero{text-align:center;padding:110px 20px 70px}
-    .hero img{max-width:180px;margin-bottom:20px}
-    .hero h1{font-size:40px;margin:10px 0}
-    .section{max-width:1000px;margin:40px auto;padding:30px;background:rgba(0,0,0,.8);border-left:6px solid #FFD200}
-    h2{margin-top:0}
-    .topbar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#000;border-bottom:3px solid #FFD200;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px}
-    .topbar a{font-weight:900;text-decoration:none;border-radius:8px;padding:10px 14px}
-    .call{background:#FFD200;color:#000}
-    .soc{background:#111;color:#FFD200;border:1px solid #FFD200}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telematics | Tachograph & Telematics Service</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),url('telemat.jpg') center/cover fixed;
+  color:#FFD200;
+}
+
+/* TOP BAR */
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:#000;
+  border-bottom:2px solid #FFD200;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+  z-index:999;
+}
+
+.topbar a, .lang button{
+  text-decoration:none;
+  font-weight:bold;
+  padding:8px 14px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.call{background:#FFD200;color:#000;}
+.soc{color:#FFD200;border:1px solid #FFD200;}
+.lang button{
+  background:#111;
+  color:#FFD200;
+  border:1px solid #FFD200;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:110px 20px 50px;
+  animation:fadeIn 1.2s ease;
+}
+
+.hero img{max-width:150px;margin-bottom:15px}
+h1,h2{margin:10px 0}
+
+/* SECTION */
+.section{
+  max-width:900px;
+  margin:30px auto;
+  padding:25px;
+  background:#111;
+  border-radius:10px;
+  animation:fadeUp 1s ease;
+}
+
+/* CARDS */
+.card{
+  background:#1a1a1a;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:20px;
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px rgba(255,210,0,0.2);
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 14px;
+  background:#FFD200;
+  color:#000;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-bg]').forEach(e=>e.style.display = lang==='bg'?'block':'none');
+  document.querySelectorAll('[data-en]').forEach(e=>e.style.display = lang==='en'?'block':'none');
+}
+</script>
+
 </head>
+
 <body>
+
 <div class="topbar">
-  <a class="call" href="tel:+359878969697">?? 00359 878 96 96 97</a>
+  <a class="call" href="tel:+359878969697">📞 00359 878 96 96 97</a>
   <a class="soc" href="https://m.me/TelematicsLtd" target="_blank">Messenger</a>
   <a class="soc" href="https://www.facebook.com/TelematicsLtd" target="_blank">Facebook</a>
   <a class="soc" href="https://www.instagram.com/telematicsvt/" target="_blank">Instagram</a>
+
+  <div class="lang">
+    <button onclick="setLang('bg')">BG</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
 </div>
+
 <div style="height:70px"></div>
 
-<div style="width:100%;height:420px">
-  <iframe src="https://www.google.com/maps?q=Лясковец+Христо+Ботев+43&output=embed" width="100%" height="100%" style="border:0" loading="lazy"></iframe>
-</div>
-
+<!-- HERO -->
 <div class="hero">
-  <div style="background:rgba(0,0,0,.7);display:inline-block;padding:10px 18px;border-left:6px solid #FFD200;margin-bottom:20px">
-    <strong>СЕРВИЗ ЗА ТАХОГРАФИ И ТЕЛЕМАТИКА</strong><br>
-    РЕГ. № 234/239 | СЪВМЕСТИМ С ЕС 561
+
+  <div data-bg>
+    <img src="logo-telematics.png">
+    <h2>СЕРВИЗ ЗА ТАХОГРАФИ И ТЕЛЕМАТИКА</h2>
+    <p>РЕГ. № 234/239 | СЪВМЕСТИМ С ЕС 561</p>
   </div>
-  <img src="logo-telematics.png" alt="Telematics">
-  <h1>ТАХОГРАФИ & GPS</h1>
-  <p>Монтаж • Настройка • Калибриране</p>
+
+  <div data-en style="display:none">
+    <img src="logo-telematics.png">
+    <h2>TACHOGRAPH & TELEMATICS SERVICE</h2>
+    <p>REG. No. 234/239 | EU 561 COMPLIANT</p>
+  </div>
+
 </div>
 
+<!-- LOCATIONS -->
 <div class="section">
-<h2>КОНТАКТИ И ЛОКАЦИИ</h2>
 
-<h3>Централен сервиз – гр. Лясковец</h3>
-<p><strong>бул. Христо Ботев 43</strong>, главен път 514, до Марешки<br>?? ДОСТЪП ЗА ТИР</p>
-<a class="call" href="https://www.google.com/maps/search/?api=1&query=Лясковец+Христо+Ботев+43" target="_blank">Отвори в Google Maps</a>
+  <h2 data-bg>ЛОКАЦИИ</h2>
+  <h2 data-en style="display:none">LOCATIONS</h2>
 
-<h3 style="margin-top:25px">Втори сервиз – гр. Велико Търново</h3>
-<p><strong>бул. Никола Габровски 74</strong>, паркинг сервиз Scania<br>?? ДОСТЪП ЗА ТИР</p>
-<a class="call" href="https://www.google.com/maps/search/?api=1&query=Велико+Търново+Никола+Габровски+74" target="_blank">Отвори в Google Maps</a>
+  <!-- LYASKOVETS -->
+  <div class="card">
+    <h3 data-bg>Лясковец</h3>
+    <h3 data-en style="display:none">Lyaskovets</h3>
 
-<h3 style="margin-top:25px">Трети сервиз – отваря скоро</h3>
-<p><strong>с. Поликраище</strong>, главен път Русе – Велико Търново<br>срещу OMV, база Шанс-М.Б<br>?? ДОСТЪП ЗА ТИР</p>
-<a class="call" href="https://maps.app.goo.gl/VoKZ93UvTXfGYxjr9" target="_blank">Отвори в Google Maps</a>
+    <p data-bg><strong>бул. Христо Ботев 43</strong><br>🚛 ДОСТЪП ЗА ТИР</p>
+    <p data-en style="display:none"><strong>43 Hristo Botev Blvd</strong><br>🚛 TRUCK ACCESS</p>
+
+    <a class="btn" href="https://www.google.com/maps?q=Лясковец+Христо+Ботев+43" target="_blank">Google Maps</a>
+  </div>
+
+  <!-- VT -->
+  <div class="card">
+    <h3 data-bg>Велико Търново</h3>
+    <h3 data-en style="display:none">Veliko Tarnovo</h3>
+
+    <p data-bg><strong>бул. Никола Габровски 74</strong><br>🚛 ДОСТЪП ЗА ТИР</p>
+    <p data-en style="display:none"><strong>74 Nikola Gabrovski Blvd</strong><br>🚛 TRUCK ACCESS</p>
+
+    <a class="btn" href="https://www.google.com/maps?q=Велико+Търново+Никола+Габровски+74" target="_blank">Google Maps</a>
+  </div>
+
+  <!-- POLIKRAISHTE -->
+  <div class="card">
+    <h3 data-bg>Поликраище</h3>
+    <h3 data-en style="display:none">Polikraishte</h3>
+
+    <p data-bg>
+      <strong>работи с клиенти от 01.04.2026</strong><br>
+      срещу OMV, база Шанс-М.Б<br>
+      🚛 ДОСТЪП ЗА ТИР
+    </p>
+
+    <p data-en style="display:none">
+      <strong>operating from 01.04.2026</strong><br>
+      opposite OMV, Shans-M.B base<br>
+      🚛 TRUCK ACCESS
+    </p>
+
+    <a class="btn" href="https://maps.app.goo.gl/VoKZ93UvTXfGYxjr9" target="_blank">Google Maps</a>
+  </div>
+
 </div>
+
 </body>
 </html>
-<!-- publish refresh -->
-
-/
